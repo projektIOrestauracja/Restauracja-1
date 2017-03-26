@@ -8,10 +8,11 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-//                Restauracja.restauracja= new Restauracja();
-                EkranKlienta ekranKlienta = new EkranKlienta();
-                EkranKuchni ekranKuchni = new EkranKuchni();
-                EkranSali ekranSali = new EkranSali();
+                Restauracja.restauracja = new Restauracja();
+//                CzytnikPlikow czytnikDan = new CzytnikPlikow();
+//                czytnikDan.czytajPlik();
+                MenuRestauracji menuRestauracji = new MenuRestauracji();
+                menuRestauracji.odczytajDaniaZPlikuDoListy();
             }
         });
     }
