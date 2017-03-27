@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class CzytnikPlikow {
 
-    public String czytajPlik() {
+    public String czytajPlik(String fileName) {
         String everything = "";
-        try (BufferedReader br = new BufferedReader(new FileReader("menu.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
@@ -22,13 +22,22 @@ public class CzytnikPlikow {
             }
             everything = sb.toString();
         } catch (IOException e) {
+            System.err.println("Blad odczytu pliku!");
             System.err.format("IOException: %s%n", e);
         }
         return everything;
     }
 
-    public void zapiszPlik() {
+    public void zapiszPlik(String filename, String line) {
+        try (FileWriter fileWriter = new FileWriter(filename, true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+             PrintWriter out = new PrintWriter(bufferedWriter)) {
+            out.println(line);
 
+        } catch (IOException e) {
+            System.err.println("Blad zapisu pliku!");
+            System.err.format("IOException: %s%n", e);
+        }
     }
 }
 
