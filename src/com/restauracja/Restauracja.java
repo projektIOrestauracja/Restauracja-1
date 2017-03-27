@@ -10,19 +10,26 @@ public class Restauracja {
     public static Restauracja restauracja;
 
     private ZarzadcaZamowien zarzadca;
-    private Kuchnia kuchnia;
+    private MenuRestauracji menuRestauracji;
     private EkranSali ekranSali;
     private EkranKlienta ekranKlienta;
+    private EkranKuchni ekranKuchni;
+
     private List<Klient> listaKlientow = new ArrayList<Klient>();
 
     public Restauracja() {
         zarzadca = new ZarzadcaZamowien();
-        kuchnia = new Kuchnia();
+        menuRestauracji = new MenuRestauracji();
         ekranSali = new EkranSali();
         ekranKlienta = new EkranKlienta();
+        ekranKuchni = new EkranKuchni();
     }
 
     public List<Klient> getListaKlientow() {
         return listaKlientow;
+    }
+
+    public MenuRestauracji getMenuRestauracji() {
+        return menuRestauracji;
     }
 }
