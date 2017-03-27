@@ -5,17 +5,20 @@ package com.restauracja;
  */
 public class Klient {
 
-    public static int numerKlienta = -1;
+    //do automatycznej numeracji klientow
+    public static int liczbaKlientow = -1;
+
+    //do rozpoznania danego klienta
     private int idKlienta = 0;
     private int rachunek = 0;
     private Zamowienie zamowienie;
 
     Klient() {
-        numerKlienta++;
+        liczbaKlientow++;
         //Po 100 znowu bedzie 0
-        numerKlienta %= 100;
+        liczbaKlientow %= 100;
 
-        idKlienta = numerKlienta;
+        idKlienta = liczbaKlientow;
         zamowienie = new Zamowienie(idKlienta);
     }
 

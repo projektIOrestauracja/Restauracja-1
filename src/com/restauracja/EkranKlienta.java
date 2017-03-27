@@ -47,15 +47,15 @@ public class EkranKlienta {
         zlozZamowienieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Klient.numerKlienta == 0) {
+                if (Klient.liczbaKlientow == 0) {
                     Restauracja.restauracja.getListaKlientow().add(klient);
                 }
                 klient = new Klient();
                 Restauracja.restauracja.getListaKlientow().add(klient);
                 klient.zlozZamowienie();
 
-                System.out.println(Klient.numerKlienta);
-                System.out.println(Restauracja.restauracja.getListaKlientow().get(Klient.numerKlienta).getIdKlienta());
+//                System.out.println(Klient.liczbaKlientow);
+//                System.out.println(Restauracja.restauracja.getListaKlientow().get(Klient.liczbaKlientow).getIdKlienta());
 
             }
         });
