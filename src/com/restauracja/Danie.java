@@ -5,14 +5,24 @@ package com.restauracja;
  */
 
 public class Danie {
+    private static int liczbaDan = 0;
     private int idDania = 0;
     private String nazwaDania;
-    private float cenaDania;
+    private double cenaDania;
 
-    public Danie(int idDania, String nazwaDania, float cenaDania) {
+    //uzywaj przy tworzeniu nowych dan
+    public Danie(String nazwaDania, double cenaDania) {
+        this.idDania = ++liczbaDan;
+        this.nazwaDania = nazwaDania;
+        this.cenaDania = cenaDania;
+    }
+
+    //uzywaj przy odczytywaniu dan z pliku
+    public Danie(int idDania, String nazwaDania, double cenaDania) {
         this.idDania = idDania;
         this.nazwaDania = nazwaDania;
         this.cenaDania = cenaDania;
+        liczbaDan++;
     }
 
     public int getIdDania() {
@@ -31,7 +41,7 @@ public class Danie {
         this.nazwaDania = nazwaDania;
     }
 
-    public float getCenaDania() {
+    public double getCenaDania() {
         return cenaDania;
     }
 
