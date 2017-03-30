@@ -1,6 +1,9 @@
 package com.restauracja;
 
 import javax.swing.*;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +20,8 @@ public class EkranKlienta {
     private JTextField kwota;
     private JList jListaDan;
     private Klient klient;
+
+    int indexDaniaDoUsuniecia = 0;
 
     public EkranKlienta() {
 
@@ -54,10 +59,20 @@ public class EkranKlienta {
             }
         });
 
+        jListaDan.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                JList jList = (JList) e.getSource();
+                indexDaniaDoUsuniecia = jList.getSelectedIndex();
+//                System.out.println(indexDaniaDoUsuniecia);
+            }
+        });
+
         usunDanieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                klient.usunDanie();
+                klient.usunDanie(indexDaniaDoUsuniecia);
+                kwota.setText(Double.toString(klient.getRachunek()) + " PLN");
             }
         });
 

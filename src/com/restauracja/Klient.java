@@ -32,6 +32,7 @@ public class Klient {
         comboBoxModel = new DefaultComboBoxModel();
         pobierzMenu();
 
+        //lsita wybranych dan przez klienta
         listModel = new DefaultListModel();
 
         //przypisz zamowieniu id skladajacego go klienta
@@ -40,6 +41,7 @@ public class Klient {
 
     public void zlozZamowienie() {
 
+//        zamowienie.getlistaDan().add(d)
     }
 
 //    public void oplacZamowienie(){
@@ -53,11 +55,14 @@ public class Klient {
         listModel.addElement(d.getIdDania() + " " + d.getNazwaDania() + " " + d.getCenaDania() + " PLN");
         rachunek += d.getCenaDania();
         zamowienie.getlistaDan().add(d);
-
     }
 
-    public void usunDanie() {
-
+    public void usunDanie(int index) {
+        listModel.remove(index);
+//        System.out.println(zamowienie.getlistaDan().get(index).getNazwaDania());
+        double tmpCena = zamowienie.getlistaDan().get(index).getCenaDania();
+        rachunek -= tmpCena;
+        zamowienie.getlistaDan().remove(index);
     }
 
     private void pobierzMenu() {

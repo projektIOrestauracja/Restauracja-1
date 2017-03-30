@@ -5,3 +5,4 @@
 5 BigMac 10.9
 6 Pierogi 12.0
 7 HotDog 5.0
+8 Pomidorowa 4.5
