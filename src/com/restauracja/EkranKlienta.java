@@ -1,7 +1,6 @@
 package com.restauracja;
 
 import javax.swing.*;
-import javax.swing.event.AncestorListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.Dimension;
@@ -11,6 +10,9 @@ import java.awt.event.ActionListener;
 /**
  * Created by dw on 24.03.17.
  */
+
+import java.awt.Toolkit;
+
 public class EkranKlienta {
     private JPanel panelEkranuKlienta;
     private JButton dodajDanieButton;
@@ -31,6 +33,12 @@ public class EkranKlienta {
         frame.pack();
         frame.setVisible(true);
         frame.setPreferredSize(new Dimension(650, 650));
+
+        int szerokosc = frame.getWidth() / 2;
+        int wysokosc = frame.getHeight() / 2;
+        int x = (Toolkit.getDefaultToolkit().getScreenSize().width / 2) - szerokosc;
+        int y = (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - wysokosc;
+        frame.setLocation(x, y);
 
         //utworz pierwszego klienta
         klient = new Klient();

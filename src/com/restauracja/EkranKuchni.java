@@ -26,6 +26,12 @@ public class EkranKuchni {
         frame.setVisible(true);
         frame.setPreferredSize(new Dimension(650, 650));
 
+        int szerokosc = frame.getWidth() / 2;
+        int wysokosc = frame.getHeight() / 2;
+        int x = (Toolkit.getDefaultToolkit().getScreenSize().width) - szerokosc;
+        int y = (Toolkit.getDefaultToolkit().getScreenSize().height / 2) - wysokosc;
+        frame.setLocation(x, y);
+
         dodajDanieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
