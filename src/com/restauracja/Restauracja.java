@@ -10,7 +10,7 @@ public class Restauracja {
     public static Restauracja restauracja;
 
     private ZarzadcaZamowien zarzadca;
-    private MenuRestauracji menuRestauracji;
+    //    private MenuRestauracji menuRestauracji;
     private EkranSali ekranSali;
     private EkranKlienta ekranKlienta;
     private EkranKuchni ekranKuchni;
@@ -19,7 +19,7 @@ public class Restauracja {
 
     public Restauracja() {
         zarzadca = new ZarzadcaZamowien();
-        menuRestauracji = new MenuRestauracji();
+//        menuRestauracji = new MenuRestauracji();
         ekranSali = new EkranSali();
         ekranKlienta = new EkranKlienta();
         ekranKuchni = new EkranKuchni();
@@ -29,7 +29,7 @@ public class Restauracja {
         return listaKlientow;
     }
 
-    public MenuRestauracji getMenuRestauracji() {
-        return menuRestauracji;
-    }
+//    public MenuRestauracji getMenuRestauracji() {
+//        return menuRestauracji;
+//    }
 }

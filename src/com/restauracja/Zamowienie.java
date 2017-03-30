@@ -1,5 +1,6 @@
 package com.restauracja;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
 public class Zamowienie {
 
     private Danie danie;
-    private List<Danie> danieList;
+    private List<Danie> listaDan;
     private int idZamowienia = 0;
 
     private enum StanZamowienia {
@@ -20,13 +21,14 @@ public class Zamowienie {
     public Zamowienie(int idZamowienia) {
         this.idZamowienia = idZamowienia;
         stanZamowienia = StanZamowienia.WTrakcieRealizacji;
+        listaDan = new ArrayList<>();
     }
 
-    public List<Danie> getDanieList() {
-        return danieList;
+    public List<Danie> getlistaDan() {
+        return listaDan;
     }
 
-    public void setDanieList(List<Danie> danieList) {
-        this.danieList = danieList;
+    public void setlistaDan(List<Danie> danieList) {
+        this.listaDan = danieList;
     }
 }

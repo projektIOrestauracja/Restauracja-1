@@ -13,13 +13,13 @@ public class EkranKlienta {
     private JButton dodajDanieButton;
     private JButton usunDanieButton;
     private JButton zlozZamowienieButton;
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
+    private JComboBox wybierzDanieBox;
     private JTextField kwota;
-
+    private JList jListaDan;
     private Klient klient;
 
     public EkranKlienta() {
+
         JFrame frame = new JFrame("Ekran klienta");
         frame.setContentPane(panelEkranuKlienta);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -30,10 +30,27 @@ public class EkranKlienta {
         //utworz pierwszego klienta
         klient = new Klient();
 
+        //ustaw model combo boxa
+        wybierzDanieBox.setModel(klient.getComboBoxModel());
+
+        //ustaw model listy wybranych dan
+        jListaDan.setModel(klient.getListModel());
+
         dodajDanieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                klient.dodajDanie();
+
+            }
+        });
+
+        wybierzDanieBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JComboBox comboBox = (JComboBox) e.getSource();
+                int index = comboBox.getSelectedIndex();
+//                System.out.println(index);
+                klient.dodajDanie(index);
+                kwota.setText(Double.toString(klient.getRachunek()) + " PLN");
             }
         });
 
@@ -60,4 +77,5 @@ public class EkranKlienta {
             }
         });
     }
+
 }

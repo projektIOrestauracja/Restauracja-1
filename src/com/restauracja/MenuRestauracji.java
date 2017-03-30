@@ -12,6 +12,8 @@ public class MenuRestauracji {
     private CzytnikPlikow czytnikPlikow;
     private List<Danie> listaDan;
 
+    public static MenuRestauracji menuRestauracji;
+
     MenuRestauracji() {
         czytnikPlikow = new CzytnikPlikow();
         listaDan = new ArrayList<>();
@@ -61,6 +63,10 @@ public class MenuRestauracji {
 //            System.out.print(d.getNazwaDania() + " ");
 //            System.out.println(d.getCenaDania());
 //        }
+    }
+
+    public List<Danie> getListaDan() {
+        return listaDan;
     }
 }
 

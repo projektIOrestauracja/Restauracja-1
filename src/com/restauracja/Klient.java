@@ -1,5 +1,9 @@
 package com.restauracja;
 
+import javax.swing.DefaultListModel;
+import javax.swing.DefaultComboBoxModel;
+import java.util.ArrayList;
+
 /**
  * Created by dw on 24.03.17.
  */
@@ -10,8 +14,12 @@ public class Klient {
 
     //do rozpoznania danego klienta
     private int idKlienta = 0;
-    private int rachunek = 0;
+
+    private double rachunek = 0;
     private Zamowienie zamowienie;
+
+    private DefaultComboBoxModel comboBoxModel;
+    private DefaultListModel listModel;
 
     Klient() {
         liczbaKlientow++;
@@ -19,6 +27,14 @@ public class Klient {
         liczbaKlientow %= 100;
 
         idKlienta = liczbaKlientow;
+
+        //przygotuj menu z ktorego klient moze wybierac dania
+        comboBoxModel = new DefaultComboBoxModel();
+        pobierzMenu();
+
+        listModel = new DefaultListModel();
+
+        //przypisz zamowieniu id skladajacego go klienta
         zamowienie = new Zamowienie(idKlienta);
     }
 
@@ -30,16 +46,40 @@ public class Klient {
 //
 //    }
 
-    public void dodajDanie() {
-//        zamowienie.getDanieList().add()
-        System.out.println("dodaje danie");
+    public void dodajDanie(int idDania) {
+
+        Danie d = MenuRestauracji.menuRestauracji.getListaDan().get(idDania);
+
+        listModel.addElement(d.getIdDania() + " " + d.getNazwaDania() + " " + d.getCenaDania() + " PLN");
+        rachunek += d.getCenaDania();
+        zamowienie.getlistaDan().add(d);
+
     }
 
     public void usunDanie() {
 
     }
 
+    private void pobierzMenu() {
+        ArrayList<Danie> tempListaDan = (ArrayList) MenuRestauracji.menuRestauracji.getListaDan();
+        for (Danie d : tempListaDan) {
+            comboBoxModel.addElement(d.getIdDania() + " " + d.getNazwaDania() + " " + d.getCenaDania() + " PLN");
+        }
+    }
+
+    public DefaultComboBoxModel getComboBoxModel() {
+        return comboBoxModel;
+    }
+
+    public DefaultListModel getListModel() {
+        return listModel;
+    }
+
     public int getIdKlienta() {
         return idKlienta;
+    }
+
+    public double getRachunek() {
+        return rachunek;
     }
 }

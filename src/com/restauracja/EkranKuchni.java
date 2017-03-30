@@ -31,7 +31,9 @@ public class EkranKuchni {
             public void actionPerformed(ActionEvent e) {
                 String nazwaDania = nazwaDaniaField.getText();
                 String cenaDania = cenaDaniaField.getText();
-                Restauracja.restauracja.getMenuRestauracji().dodajNoweDanie(nazwaDania, Double.parseDouble(cenaDania));
+//                Restauracja.restauracja.getMenuRestauracji().dodajNoweDanie(nazwaDania, Double.parseDouble(cenaDania));
+                MenuRestauracji.menuRestauracji.dodajNoweDanie(nazwaDania, Double.parseDouble(cenaDania));
+
             }
         });
     }
