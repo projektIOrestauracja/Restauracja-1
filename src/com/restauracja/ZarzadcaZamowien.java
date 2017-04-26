@@ -1,5 +1,6 @@
 package com.restauracja;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,13 @@ public class ZarzadcaZamowien {
     private List<Zamowienie> zakonczoneZamowienia;
     private List<Zamowienie> realizowaneZamowienia;
 
-    public void odbierzNoweZamowienie(Zamowienie zamowienie) {
+    public ZarzadcaZamowien(){
+        zakonczoneZamowienia = new ArrayList<>();
+        realizowaneZamowienia = new ArrayList<>();
+    }
 
+    public void odbierzNoweZamowienie(Zamowienie zamowienie) {
+        realizowaneZamowienia.add(zamowienie);
     }
 
     public void usunZakonczoneZamowienie(Zamowienie zamowienie) {

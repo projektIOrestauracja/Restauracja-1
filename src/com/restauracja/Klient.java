@@ -18,8 +18,8 @@ public class Klient {
     private double rachunek = 0;
     private Zamowienie zamowienie;
 
-    private DefaultComboBoxModel comboBoxModel;
-    private DefaultListModel listModel;
+    private  DefaultComboBoxModel comboBoxModel;
+    private  DefaultListModel listModel;
 
     Klient() {
         liczbaKlientow++;
@@ -41,12 +41,8 @@ public class Klient {
 
     public void zlozZamowienie() {
 
-//        zamowienie.getlistaDan().add(d)
+        Restauracja.restauracja.getZarzadca().odbierzNoweZamowienie(zamowienie);
     }
-
-//    public void oplacZamowienie(){
-//
-//    }
 
     public void dodajDanie(int idDania) {
 
@@ -86,5 +82,9 @@ public class Klient {
 
     public double getRachunek() {
         return rachunek;
+    }
+
+    public Zamowienie getZamowienie() {
+        return zamowienie;
     }
 }

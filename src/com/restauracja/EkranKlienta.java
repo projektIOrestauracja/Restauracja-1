@@ -14,8 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.Toolkit;
 
 public class EkranKlienta {
+//    private JFrame frame;
     private JPanel panelEkranuKlienta;
-    private JButton dodajDanieButton;
+//    private JButton dodajDanieButton;
     private JButton usunDanieButton;
     private JButton zlozZamowienieButton;
     private JComboBox wybierzDanieBox;
@@ -28,6 +29,7 @@ public class EkranKlienta {
     public EkranKlienta() {
 
         JFrame frame = new JFrame("Ekran klienta");
+//        frame = new JFrame("Ekran klienta");
         frame.setContentPane(panelEkranuKlienta);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
@@ -49,19 +51,12 @@ public class EkranKlienta {
         //ustaw model listy wybranych dan
         jListaDan.setModel(klient.getListModel());
 
-        dodajDanieButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
         wybierzDanieBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JComboBox comboBox = (JComboBox) e.getSource();
                 int index = comboBox.getSelectedIndex();
-//                System.out.println(index);
+
                 klient.dodajDanie(index);
                 kwota.setText(Double.toString(klient.getRachunek()) + " PLN");
             }
@@ -72,7 +67,6 @@ public class EkranKlienta {
             public void valueChanged(ListSelectionEvent e) {
                 JList jList = (JList) e.getSource();
                 indexDaniaDoUsuniecia = jList.getSelectedIndex();
-//                System.out.println(indexDaniaDoUsuniecia);
             }
         });
 
@@ -87,18 +81,20 @@ public class EkranKlienta {
         zlozZamowienieButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Klient.liczbaKlientow == 0) {
-                    Restauracja.restauracja.getListaKlientow().add(klient);
-                }
-                klient = new Klient();
+
+                //dodaj klienta do globalnej listy klientow
                 Restauracja.restauracja.getListaKlientow().add(klient);
+
                 klient.zlozZamowienie();
+                System.out.println(klient.toString());
+                System.out.println(klient.getZamowienie().toString());
 
-//                System.out.println(Klient.liczbaKlientow);
-//                System.out.println(Restauracja.restauracja.getListaKlientow().get(Klient.liczbaKlientow).getIdKlienta());
+                //tworz kolejnego klienta
+                klient = new Klient();
 
+                //ustaw nowy model listy dan klienta dla JList'y
+                jListaDan.setModel(klient.getListModel());
             }
         });
     }
-
 }

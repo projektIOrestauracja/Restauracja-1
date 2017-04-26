@@ -24,11 +24,16 @@ public class Zamowienie {
         listaDan = new ArrayList<>();
     }
 
-    public List<Danie> getlistaDan() {
-        return listaDan;
+    @Override
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Danie d : listaDan){
+        stringBuilder.append(d.toString());
+        }
+        return stringBuilder.toString();
     }
 
-    public void setlistaDan(List<Danie> danieList) {
-        this.listaDan = danieList;
+    public List<Danie> getlistaDan() {
+        return listaDan;
     }
 }

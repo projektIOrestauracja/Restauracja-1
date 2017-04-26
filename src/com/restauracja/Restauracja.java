@@ -14,10 +14,10 @@ public class Restauracja {
     private EkranSali ekranSali;
     private EkranKlienta ekranKlienta;
     private EkranKuchni ekranKuchni;
-
-    private List<Klient> listaKlientow = new ArrayList<Klient>();
+    private List<Klient> listaKlientow;
 
     public Restauracja() {
+        listaKlientow = new ArrayList<Klient>();
         zarzadca = new ZarzadcaZamowien();
 //        menuRestauracji = new MenuRestauracji();
         ekranSali = new EkranSali();
@@ -29,7 +29,7 @@ public class Restauracja {
         return listaKlientow;
     }
 
-//    public MenuRestauracji getMenuRestauracji() {
-//        return menuRestauracji;
-//    }
+    public ZarzadcaZamowien getZarzadca() {
+        return zarzadca;
+    }
 }

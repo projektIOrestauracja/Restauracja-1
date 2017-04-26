@@ -25,6 +25,11 @@ public class Danie {
         liczbaDan++;
     }
 
+    @Override
+    public String toString(){
+        return (Integer.toString(idDania) +" "+ nazwaDania +" "+ Double.toString(cenaDania) +'\n');
+    }
+
     public int getIdDania() {
         return idDania;
     }
