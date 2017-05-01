@@ -11,24 +11,35 @@ public class ZarzadcaZamowien {
     private List<Zamowienie> zakonczoneZamowienia;
     private List<Zamowienie> realizowaneZamowienia;
 
-    public ZarzadcaZamowien(){
+    private EkranSali ekranSali;
+
+    public ZarzadcaZamowien(EkranSali ekranSali){
+        this.ekranSali = ekranSali;
+
         zakonczoneZamowienia = new ArrayList<>();
         realizowaneZamowienia = new ArrayList<>();
     }
 
     public void odbierzNoweZamowienie(Zamowienie zamowienie) {
         realizowaneZamowienia.add(zamowienie);
+        aktualizujEkranSali();
     }
 
     public void usunZakonczoneZamowienie(Zamowienie zamowienie) {
-
+        zakonczoneZamowienia.add(zamowienie);
+        realizowaneZamowienia.remove(zamowienie);
     }
 
-    public List<Zamowienie> zwrocZakonczoneZamowienia() {
+    private void aktualizujEkranSali(){
+        ekranSali.getListModelWTrakcie().addElement(realizowaneZamowienia.get(realizowaneZamowienia.size() - 1));
+        ekranSali.getListaWTrakcie().setModel(ekranSali.getListModelWTrakcie());
+    }
+
+    public List<Zamowienie> getZakonczoneZamowienia() {
         return zakonczoneZamowienia;
     }
 
-    public List<Zamowienie> zwrocRealizowaneZamowienia() {
+    public List<Zamowienie> getRealizowaneZamowienia() {
         return realizowaneZamowienia;
     }
 }

@@ -14,9 +14,7 @@ import java.awt.event.ActionListener;
 import java.awt.Toolkit;
 
 public class EkranKlienta {
-//    private JFrame frame;
     private JPanel panelEkranuKlienta;
-//    private JButton dodajDanieButton;
     private JButton usunDanieButton;
     private JButton zlozZamowienieButton;
     private JComboBox wybierzDanieBox;
@@ -94,6 +92,8 @@ public class EkranKlienta {
 
                 //ustaw nowy model listy dan klienta dla JList'y
                 jListaDan.setModel(klient.getListModel());
+
+                kwota.setText("0 PLN");
             }
         });
     }

@@ -18,11 +18,11 @@ public class Restauracja {
 
     public Restauracja() {
         listaKlientow = new ArrayList<Klient>();
-        zarzadca = new ZarzadcaZamowien();
 //        menuRestauracji = new MenuRestauracji();
         ekranSali = new EkranSali();
         ekranKlienta = new EkranKlienta();
         ekranKuchni = new EkranKuchni();
+        zarzadca = new ZarzadcaZamowien(ekranSali);
     }
 
     public List<Klient> getListaKlientow() {
@@ -31,5 +31,17 @@ public class Restauracja {
 
     public ZarzadcaZamowien getZarzadca() {
         return zarzadca;
+    }
+
+    public EkranSali getEkranSali() {
+        return ekranSali;
+    }
+
+    public EkranKlienta getEkranKlienta() {
+        return ekranKlienta;
+    }
+
+    public EkranKuchni getEkranKuchni() {
+        return ekranKuchni;
     }
 }
